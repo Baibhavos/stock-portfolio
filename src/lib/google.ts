@@ -1,9 +1,6 @@
 import { fundamentalsCache } from './cache';
 import { Fundamentals } from './types';
 import * as cheerio from 'cheerio';
-import pLimit from 'p-limit';
-
-const limit = pLimit(4);
 
 async function fetchOne(symbol: string): Promise<Fundamentals> {
   const url = `https://www.google.com/finance/quote/${encodeURIComponent(symbol)}`;
@@ -31,7 +28,7 @@ export async function getGoogleFundamentals(googleSymbols: string[]): Promise<Re
   const cached = fundamentalsCache.get(key);
   if (cached) return cached;
 
-  const results = await Promise.allSettled(googleSymbols.map(s => limit(() => fetchOne(s))));
+  const results = await Promise.allSettled(googleSymbols.map(s => fetchOne(s)));
   const map: Record<string, Fundamentals> = {};
   results.forEach((res, idx) => {
     const s = googleSymbols[idx];

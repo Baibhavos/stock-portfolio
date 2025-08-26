@@ -11,7 +11,8 @@ export async function GET(req: NextRequest) {
   try {
     const fundamentals = await getGoogleFundamentals(symbols);
     return Response.json({ fundamentals });
-  } catch (e: any) {
-    return Response.json({ error: e?.message || 'failed to fetch fundamentals' }, { status: 502 });
+  } catch (e: unknown) {
+    const error = e instanceof Error ? e.message : 'failed to fetch fundamentals';
+    return Response.json({ error }, { status: 502 });
   }
 }

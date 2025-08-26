@@ -16,7 +16,8 @@ export async function GET(req: NextRequest) {
       return Response.json({ quotes: {}, warning: 'No quotes returned' }, { status: 200 });
     }
     return Response.json({ quotes });
-  } catch (e: any) {
-    return Response.json({ error: e?.message || 'failed to fetch quotes' }, { status: 502 });
+  } catch (e: unknown) {
+    const error = e instanceof Error ? e.message : 'failed to fetch quotes';
+    return Response.json({ error }, { status: 502 });
   }
 }

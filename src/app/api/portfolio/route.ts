@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { Holding, Row } from '@/lib/types';
+import { Holding, Row, Quote, Fundamentals } from '@/lib/types';
 import { toGoogleSymbol, toYahooSymbol } from '@/lib/exchange';
 import { getYahooQuotes } from '@/lib/yahoo';
 import { getGoogleFundamentals } from '@/lib/google';
@@ -19,8 +19,11 @@ export async function POST(req: NextRequest) {
     const gSymbols = holdings.map(h => toGoogleSymbol(h));
 
     const [qres, fres] = await Promise.all([
-      getYahooQuotes(ySymbols).catch((error: any) => (console.log("err-portfolio-getYahooQuotes=>", error))),
-      getGoogleFundamentals(gSymbols).catch(() => ({} as any)),
+      getYahooQuotes(ySymbols).catch((error: unknown) => {
+        console.log("err-portfolio-getYahooQuotes=>", error);
+        return {} as Record<string, Quote>;
+      }),
+      getGoogleFundamentals(gSymbols).catch(() => ({} as Record<string, Fundamentals>)),
     ]);
 
     const cmpMap: Record<string, number> = {};
@@ -31,8 +34,8 @@ export async function POST(req: NextRequest) {
       const h = holdings[i];
       const y = ySymbols[i];
       const g = gSymbols[i];
-      const q = (qres as any)?.[y];
-      const f = (fres as any)?.[g];
+      const q = qres?.[y];
+      const f = fres?.[g];
       const key = `${h.exchange}:${h.symbol}`;
       cmpMap[key] = q?.price ?? 0;
       peMap[key] = f?.pe ?? null;
@@ -41,7 +44,8 @@ export async function POST(req: NextRequest) {
 
     const rows: Row[] = attachDerived(holdings, cmpMap, peMap, earnMap);
     return Response.json(rows);
-  } catch (e: any) {
-    return Response.json({ error: e?.message || 'failed' }, { status: 500 });
+  } catch (e: unknown) {
+    const error = e instanceof Error ? e.message : 'failed';
+    return Response.json({ error }, { status: 500 });
   }
 }

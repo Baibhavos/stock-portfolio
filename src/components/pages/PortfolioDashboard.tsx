@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import holdingsData from '@/data/portfolio.json';
 import { Holding, Row, SectorSummary } from '@/lib/types';
 import { toYahooSymbol } from '@/lib/exchange';
@@ -12,6 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { useDashboardController } from '@/controllers/dashboard.controller';
+import { AxiosError } from 'axios';
 
 const holdings = holdingsData as Holding[];
 
@@ -25,27 +26,31 @@ export default function PortfolioDashboard() {
 
     const dashboardController = useDashboardController();
 
-    useEffect(() => {
-        dashboardController.getPortfolio(JSON.stringify(holdings), (data) => {
-            setAllRows(data);
-            setFilteredRows(data);
-            setInitialError(null);
-            setLoading(false);
-        }, (err: any) => {
-            setInitialError('Failed to load portfolio');
-            toast.error('Uh oh!  Failed to get portfolio data!', {
-                description: `${err}`,
-                richColors: true,
-                position: 'top-right'
-            });
-            setLoading(false);
-        });
+    const handlePortfolioSuccess = useCallback((data: Row[]) => {
+        setAllRows(data);
+        setFilteredRows(data);
+        setInitialError(null);
+        setLoading(false);
     }, []);
+
+    const handlePortfolioError = useCallback((err: Error | AxiosError) => {
+        setInitialError('Failed to load portfolio');
+        toast.error('Uh oh!  Failed to get portfolio data!', {
+            description: `${err.message}`,
+            richColors: true,
+            position: 'top-right'
+        });
+        setLoading(false);
+    }, []);
+
+    useEffect(() => {
+        dashboardController.getPortfolio(JSON.stringify(holdings), handlePortfolioSuccess, handlePortfolioError);
+    }, [dashboardController, handlePortfolioSuccess, handlePortfolioError]);
 
     useEffect(() => {
         if (!allRows.length) return;
         let cancelled = false;
-        let timer: any = null;
+        let timer: NodeJS.Timeout | null = null;
         let failureCount = 0;
 
         const poll = async () => {
@@ -69,25 +74,26 @@ export default function PortfolioDashboard() {
 
                     failureCount = 0;
                     setLiveError(null);
-                }, (err) => {
+                }, (err: Error | AxiosError) => {
                     failureCount++;
-                    setLiveError(err?.message || 'Live price update failed');
+                    setLiveError(err.message || 'Live price update failed');
                 });
-            } catch (e: any) {
+            } catch (e: unknown) {
                 failureCount++;
-                setLiveError(e?.message || 'Live price update failed');
+                const errorMessage = e instanceof Error ? e.message : 'Live price update failed';
+                setLiveError(errorMessage);
             } finally {
                 const wait = Math.min(60000, 15000 * Math.max(1, failureCount));
-                clearTimeout(timer);
+                if (timer) clearTimeout(timer);
                 timer = setTimeout(poll, wait);
             }
         };
         poll();
         return () => {
             cancelled = true;
-            clearTimeout(timer);
+            if (timer) clearTimeout(timer);
         };
-    }, [allRows.length]);
+    }, [allRows.length, dashboardController]);
 
     const sectors: SectorSummary[] = useMemo(() => groupBySector(allRows), [allRows]);
 

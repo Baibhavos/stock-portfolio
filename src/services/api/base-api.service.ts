@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosStatic } from 'axios';
+import axios, { AxiosRequestConfig, AxiosStatic } from 'axios';
 
 export class BaseApiService {
 
