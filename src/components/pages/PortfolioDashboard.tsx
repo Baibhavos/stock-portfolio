@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { useDashboardController } from '@/controllers/dashboard.controller';
 import { AxiosError } from 'axios';
+import { LoadingScreen } from '../molecules/LoadingScreen';
 
 const holdings = holdingsData as Holding[];
 
@@ -114,7 +115,7 @@ export default function PortfolioDashboard() {
             <h1 className="text-2xl font-semibold">Dynamic Portfolio Dashboard</h1>
             {initialError && <ErrorBanner message={initialError} />}
             {liveError && <ErrorBanner title="Live update issue" message={liveError} />}
-            {loading && <div className="text-sm text-muted">Loading portfolio…</div>}
+            {loading && <LoadingScreen />}
             {!loading && !!filteredRows.length && (
                 <>
                     <div className="flex flex-col items-center justify-center lg:flex-row gap-6">
