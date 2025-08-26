@@ -1,0 +1,292 @@
+[
+  {
+    "sector": "Financial Sector",
+    "name": "HDFC Bank",
+    "purchasePrice": 1490.0,
+    "quantity": 50,
+    "investment": 74500.0,
+    "portfolioPct": 0.0482806890205177,
+    "symbol": "HDFCBANK",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Financial Sector",
+    "name": "Bajaj Finance",
+    "purchasePrice": 6466.0,
+    "quantity": 15,
+    "investment": 96990.0,
+    "portfolioPct": 0.0628556245382552,
+    "symbol": "BAJFINANCE",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Financial Sector",
+    "name": "ICICI Bank",
+    "purchasePrice": 780.0,
+    "quantity": 84,
+    "investment": 65520.0,
+    "portfolioPct": 0.0424610838204606,
+    "symbol": "ICICIBANK",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Financial Sector",
+    "name": "Bajaj Housing",
+    "purchasePrice": 130.0,
+    "quantity": 504,
+    "investment": 65520.0,
+    "portfolioPct": 0.0424610838204606,
+    "symbol": "BAJAJHFL",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Financial Sector",
+    "name": "Savani Financials",
+    "purchasePrice": 24.0,
+    "quantity": 1080,
+    "investment": 25920.0,
+    "portfolioPct": 0.0167977914015009,
+    "symbol": "511577",
+    "exchange": "BSE"
+  },
+  {
+    "sector": "Tech Sector",
+    "name": "Affle India",
+    "purchasePrice": 1151.0,
+    "quantity": 50,
+    "investment": 57550.0,
+    "portfolioPct": 0.0372960221896751,
+    "symbol": "AFFLE",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Tech Sector",
+    "name": "LTI Mindtree",
+    "purchasePrice": 4775.0,
+    "quantity": 16,
+    "investment": 76400.0,
+    "portfolioPct": 0.0495120086062758,
+    "symbol": "LTIM",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Tech Sector",
+    "name": "KPIT Tech",
+    "purchasePrice": 672.0,
+    "quantity": 61,
+    "investment": 40992.0,
+    "portfolioPct": 0.0265653960312626,
+    "symbol": "KPITTECH",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Tech Sector",
+    "name": "Tata Tech",
+    "purchasePrice": 1072.0,
+    "quantity": 63,
+    "investment": 67536.0,
+    "portfolioPct": 0.0437675787072441,
+    "symbol": "TATATECH",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Tech Sector",
+    "name": "BLS E-Services",
+    "purchasePrice": 232.0,
+    "quantity": 191,
+    "investment": 44312.0,
+    "portfolioPct": 0.02871696499164,
+    "symbol": "BLSE",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Tech Sector",
+    "name": "Tanla",
+    "purchasePrice": 1134.0,
+    "quantity": 45,
+    "investment": 51030.0,
+    "portfolioPct": 0.0330706518217049,
+    "symbol": "TANLA",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Consumer Sector",
+    "name": "Dmart",
+    "purchasePrice": 3777.0,
+    "quantity": 27,
+    "investment": 101979.0,
+    "portfolioPct": 0.0660888105452802,
+    "symbol": "DMART",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Consumer Sector",
+    "name": "Tata Consumer",
+    "purchasePrice": 845.0,
+    "quantity": 90,
+    "investment": 76050.0,
+    "portfolioPct": 0.0492851865773204,
+    "symbol": "TATACONSUM",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Consumer Sector",
+    "name": "Pidilite",
+    "purchasePrice": 2376.0,
+    "quantity": 36,
+    "investment": 85536.0,
+    "portfolioPct": 0.055432711624953,
+    "symbol": "PIDILITIND",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Power Sector",
+    "name": "Tata Power",
+    "purchasePrice": 224.0,
+    "quantity": 225,
+    "investment": 50400.0,
+    "portfolioPct": 0.0326623721695851,
+    "symbol": "TATAPOWER",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Power Sector",
+    "name": "KPI Green",
+    "purchasePrice": 875.0,
+    "quantity": 50,
+    "investment": 43750.0,
+    "portfolioPct": 0.0283527536194315,
+    "symbol": "KPIGREEN",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Power Sector",
+    "name": "Suzlon",
+    "purchasePrice": 44.0,
+    "quantity": 450,
+    "investment": 19800.0,
+    "portfolioPct": 0.0128316462094799,
+    "symbol": "SUZLON",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Power Sector",
+    "name": "Gensol",
+    "purchasePrice": 998.0,
+    "quantity": 45,
+    "investment": 44910.0,
+    "portfolioPct": 0.0291045066296839,
+    "symbol": "GENSOL",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Pipe Sector",
+    "name": "Hariom Pipes",
+    "purchasePrice": 580.0,
+    "quantity": 60,
+    "investment": 34800.0,
+    "portfolioPct": 0.0225525903075707,
+    "symbol": "HARIOMPIPE",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Pipe Sector",
+    "name": "Astral",
+    "purchasePrice": 1517.0,
+    "quantity": 56,
+    "investment": 84952.0,
+    "portfolioPct": 0.0550542428680673,
+    "symbol": "ASTRAL",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Pipe Sector",
+    "name": "Polycab",
+    "purchasePrice": 2818.0,
+    "quantity": 28,
+    "investment": 78904.0,
+    "portfolioPct": 0.0511347582077171,
+    "symbol": "POLYCAB",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Others Sector",
+    "name": "Clean Science",
+    "purchasePrice": 1610.0,
+    "quantity": 32,
+    "investment": 51520.0,
+    "portfolioPct": 0.0333882026622426,
+    "symbol": "CLEAN",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Others Sector",
+    "name": "Deepak Nitrite",
+    "purchasePrice": 2248.0,
+    "quantity": 27,
+    "investment": 60696.0,
+    "portfolioPct": 0.0393348281985146,
+    "symbol": "DEEPAKNTR",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Others Sector",
+    "name": "Fine Organic",
+    "purchasePrice": 4284.0,
+    "quantity": 16,
+    "investment": 68544.0,
+    "portfolioPct": 0.0444208261506358,
+    "symbol": "FINEORG",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Others Sector",
+    "name": "Gravita",
+    "purchasePrice": 2037.0,
+    "quantity": 8,
+    "investment": 16296.0,
+    "portfolioPct": 0.0105608336681659,
+    "symbol": "GRAVITA",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Others Sector",
+    "name": "SBI Life",
+    "purchasePrice": 1197.0,
+    "quantity": 49,
+    "investment": 58653.0,
+    "portfolioPct": 0.0380108356123547,
+    "symbol": "SBILIFE",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Others Sector",
+    "name": "Infosys",
+    "purchasePrice": 1647.0,
+    "quantity": 36,
+    "investment": 59292.0,
+    "portfolioPct": 0.0384249478309333,
+    "symbol": "INFY",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Others Sector",
+    "name": "Happeist Mind",
+    "purchasePrice": 1103.0,
+    "quantity": 45,
+    "investment": 49635.0,
+    "portfolioPct": 0.0321666040205825,
+    "symbol": "HAPPSTMNDS",
+    "exchange": "NSE"
+  },
+  {
+    "sector": "Others Sector",
+    "name": "Easemytrip",
+    "purchasePrice": 20.0,
+    "quantity": 1332,
+    "investment": 26640.0,
+    "portfolioPct": 0.0172643967182093,
+    "symbol": "EASEMYTRIP",
+    "exchange": "NSE"
+  }
+]
